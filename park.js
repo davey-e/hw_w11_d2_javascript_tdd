@@ -23,4 +23,14 @@ Park.prototype.getDinosaursWithMoreThanTwoOffspringPerYear = function(){
   return dinosaursWithMoreThanTwoOffspringPerYear;
 }
 
+Park.prototype.calculateDinosaurs = function(numberOfYears){
+  let totalDinosaurs = 0;
+  for(let i = 0; i < this.enclosure.length; i++){
+    let currentDinosaur = this.enclosure[i];
+    totalDinosaurs += (currentDinosaur.offspringPerYear * numberOfYears);
+  }
+  totalDinosaurs += this.enclosure.length;
+  return totalDinosaurs;
+}
+
 module.exports = Park;
