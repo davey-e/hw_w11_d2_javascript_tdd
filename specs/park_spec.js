@@ -31,6 +31,14 @@ describe('Park', function(){
     park.removeDinosaursOfType('Triceratops');
     const actualAfter = park.enclosure;
     assert.deepStrictEqual(actualAfter, [velociraptor]);
-  })
+  });
+
+  it('should be able to return all dinosaurs with offspring per year > 2', function(){
+    park.addDinosaur(triceratops1);
+    park.addDinosaur(triceratops2);
+    park.addDinosaur(velociraptor);
+    const actual = park.getDinosaursWithMoreThanTwoOffspringPerYear();
+    assert.deepStrictEqual(actual, [triceratops1, triceratops2]);
+  });
 
 });
